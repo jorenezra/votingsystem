@@ -1,0 +1,38 @@
+<html>
+	<head>
+		<meta charset="utf-8"> <!-- for character ">>" --> 
+		<!-- solve problem for icon's flat UI -->
+
+		<link href="pictures/favicon.png" rel="shortcut icon">
+		<title>Voting System</title>
+
+		<link href="css/bootstrap-custom.css" rel="stylesheet">
+		<link href="css/index.css" rel="stylesheet">
+		<script src="javascript/jquery.js"></script>
+		<script src="javascript/jquery.validate.js"></script>
+		<script src="javascript/bootstrap.js"></script>
+		<script src="javascript/globs.js"></script>
+		<script src="javascript/jqinit.js"></script>
+	</head>
+   <body>
+       <div class="modal-body" id="ModalBody">
+				<form class="center form" id="form-getresults" method="post" action="javascript: getResults();">	
+							<div class="control-group">
+								<div class="controls">
+									<h1> View Results</h1><br>
+									<label class="control-label" for="position">Political Position:</label> 
+											<select class="form-control" name="position"  id="position">
+												<option value = "president">President</option>
+												<option value = "vicepresident">Vice President</option>
+												<option value = "senator">Senators</option>
+
+											</select> 		
+								</div>
+								<br>
+								<button name="submit" id="getresults" value="" type="submit" class="btn btn-primary btn-block">View Results</button> 
+							</div>
+						</form>
+					<div id="target"></div>
+		</div>
+   </body>
+</html>
