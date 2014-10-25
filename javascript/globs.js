@@ -82,8 +82,38 @@ function getResults()
       data: {position:$("#position").val()},
       dataType: 'json',
 	  async: true,
-      success: function (res) {    
-                  console.log(res);
+      success: function (res) { 
+				  var rank1name = res[0][1];
+                  var rank1vote = res[0][2];
+				  var rank2name = res[1][1];
+                  var rank2vote = res[1][2];
+				  var rank3name = res[2][1];
+                  var rank3vote = res[2][2];
+				  var rank4name = res[3][1];
+                  var rank4vote = res[3][2];
+
+                  $("#rank1").html(rank1name);
+                  $("#vote1").html(rank1vote);
+				  $("#rank2").html(rank2name);
+                  $("#vote2").html(rank2vote);
+				  $("#rank3").html(rank3name);
+                  $("#vote3").html(rank3vote);
+				  $("#rank4").html(rank4name);
+                  $("#vote4").html(rank4vote);
+              }
+    });
+	$('#Results').collapse('show');
+}
+
+function getResultstable() 
+{
+  $.ajax({
+      url: siteloc + scriptloc + "viewresult.py",
+      data: {position:$("#position").val()},
+      dataType: 'json',
+	  async: true,
+      success: function (res) { 
+				  console.log(res);
                   if(res[0][0] != "None")
                   {
 				      table = '<div class="table-responsive">';
@@ -108,9 +138,14 @@ function getResults()
 					  table += "</tbody>";
 					  table += "</table>";
 					  table += "</div>";
-					  $("#target").html(table); 
+					  $("#target").html(table);
 				  }
               }
     });
-	$('#Results').collapse('show');
+	$('#Resultstable').collapse('show');
+}
+
+function successview()
+{
+	window.location = "http://localhost/votingsystem/";
 }

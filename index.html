@@ -170,8 +170,7 @@
 						<form class="center form" id="form-getresults" method="post" action="javascript: getResults();">	
 							<div class="control-group">
 								<div class="controls">
-									<h1> View Results</h1> <br>
-									<label class="control-label" for="position">Political Position:</label> 
+									<h3><label class="control-label" for="position">Political Position:</label></h3>
 											<select class="form-control" name="position"  id="position">
 												<option value = "president">President</option>
 												<option value = "vicepresident">Vice President</option>
@@ -183,8 +182,32 @@
 								<button name="submit" id="getresults" value="" type="submit" class="btn btn-primary btn-block">View Results</button> 
 							</div>
 						</form>
-						<div id="target"></div>
-					</div>
+						
+						<div id="Results" class="panel-collapse collapse">
+						  <div class="panel-body" id="PanelBody">
+							 <div class="row">
+									<div class="col-md-8"> 
+										<label class="control-label" for="rank1">Name</label>
+										<div class="alert alert-success" role="alert"> <p id="rank1"></p> </div>
+										<div class="alert alert-warning" role="alert"> <p id="rank2"></p> </div>
+										<div class="alert alert-success" role="alert"> <p id="rank3"></p> </div>
+										<div class="alert alert-warning" role="alert"> <p id="rank4"></p> </div>
+									</div> 
+									<div class="col-md-4">
+										<label class="control-label" for="vote1">Votes</label>
+										<div class="alert alert-success" role="alert"> <p id="vote1"></p> </div>
+										<div class="alert alert-warning" role="alert"> <p id="vote2"></p> </div>
+										<div class="alert alert-success" role="alert"> <p id="vote3"></p> </div>
+										<div class="alert alert-warning" role="alert"> <p id="vote4"></p> </div>
+									</div>
+							  </div>
+							  <form class="form-success" action="javascript: successview();" role="form">
+								<button class="btn btn-primary btn-block" type="submit">Got it!</button> 
+							  </form>
+						  </div>
+						</div>
+						
+					</div>	
 				</div>
 			</div>
 		</div>
@@ -208,7 +231,7 @@
 				</div>
 				<div class="item" id="CarouselTwo">
 					<div class="crop">
-					<img src="pictures/carousel-2.jpg"> </div>
+					<img src="pictures/carousel-10.jpg"> </div>
 			<!-- Login Collapse -->
 					<div class="carousel-caption"> 
 						<h1> Done voting? </h1>
