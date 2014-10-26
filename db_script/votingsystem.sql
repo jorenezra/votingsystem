@@ -130,3 +130,21 @@ $$
    select set_senator('Senator Candidate 8', 0);
    
  --end of Senator Table
+ 
+ --start of voters table
+ create table voters (     
+	votersid serial NOT NULL primary key,
+	votersName text
+);
+
+create or replace 
+	function set_voter(p_votersName text)
+    returns text as
+$$
+    begin
+      insert into voters(votersName) values
+        (p_votersName);
+    return 'OK';
+    end;
+$$
+  language  'plpgsql';

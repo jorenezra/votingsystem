@@ -2,6 +2,62 @@
 var siteloc = "http://localhost/votingsystem";
 var scriptloc = "/scripts/";
 
+$(document).ready(function () {
+    jQuery.validator.addMethod("lettersonly", function (value, element) {
+		return this.optional(element) || /^[a-z\s]+$/i.test(value);
+	}, "Must be composed of letters only."); 
+
+    $('#form-vote').validate({
+        rules: {
+            votersName: {
+                minlength: 5,
+                maxlength: 20,
+                required: true,
+				lettersonly: true,
+                remote: {
+			        url: siteloc + scriptloc + "checkvoter.py",
+			        data: {votersName: function() {
+			        	return $("#votersName").val();}
+			        }
+				}
+            },			
+        },
+        messages: {
+		    votersName: {
+		        remote: "You have already voted."
+		    },
+		},
+        highlight: function (element) {
+            $(element).closest('.controls').addClass('has-error');
+        },
+        success: function (element) {
+            $(element).closest('.controls').removeClass('has-error');
+        }
+		});
+});
+
+function addVoter() {
+  $.ajax({
+      url: siteloc + scriptloc + "addvoter.py",
+      data: {votersName:$("#votersName").val()},
+      dataType: 'json',
+	  async: true,
+      success: function (res) {	
+				console.log("You can vote");          
+            }
+    });
+	$('#vote').prop('disabled',true);
+	$('#votersName').prop('disabled',true);
+	$('#VoteTab a[href="#President"]').tab('show');
+	$('#VoteTab a[href="#Voter"]').click(function (e) {
+	  e.preventDefault()
+	  $(this).tab('show')
+	});
+	$('#VoteTab a[href="#President"]').click(function (e) {
+	  e.preventDefault()
+	  $(this).tab('show')
+	});
+}
 
 function votePresident()
 {
@@ -17,10 +73,6 @@ function votePresident()
 	$('#votepresident').prop('disabled',true);
 	$('#presidentName').prop('disabled',true);
 	$('#VoteTab a[href="#VicePresident"]').tab('show');
-	$('#VoteTab a[href="#President"]').click(function (e) {
-	  e.preventDefault()
-	  $(this).tab('show')
-	});
 	$('#VoteTab a[href="#VicePresident"]').click(function (e) {
 	  e.preventDefault()
 	  $(this).tab('show')

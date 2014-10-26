@@ -28,7 +28,8 @@
 						<h1 class="modal-title">Vote</h1> <h4> Be bright, vote for what is right! </h4>
 						<!-- Tabs -->
 						<ul class="nav nav-tabs" role="tablist" id="VoteTab">
-						  <li class="active"><a href="#President" role="tab">President</a> </li>
+						  <li class="active"><a href="#Voter" role="tab">Voter</a> </li>
+						  <li> <a href="#President" role="tab">President</a> </li>
 						  <li> <a href="#VicePresident" role="tab">Vice President</a> </li>
 						  <li> <a href="#Senator" role="tab">Senator</a> </li>
 						</ul>
@@ -36,8 +37,20 @@
 					<!-- Body -->
 					<div class="modal-body" id="ModalBody">				
 						<div class="tab-content">
+							<!-- User Account -->
+							<div class="tab-pane fade in active" id="Voter"> <br> <br> 
+								<form class="center form" id="form-vote" method="post" action="javascript: addVoter();">	
+									<div class="control-group">
+										<div class="controls">
+											<label class="control-label" for="votersName">Voter's Name:</label>
+											<input name="votersName" id="votersName" value="" type="text" class="form-control" placeholder="Voter's Name">
+										</div> <br>
+									</div> <br> 
+									<button name="submit" id="vote" value="" type="submit" class="btn btn-primary btn-block">Proceed</button> 
+								</form>
+							</div>
 							<!-- President -->
-							<div class="tab-pane fade in active" id="President"> <br> <br> 
+							<div class="tab-pane fade" id="President"> <br> <br> 
 								<form class="center form" id="form-votepresident" method="post" action="javascript: votePresident();">	
 									<div class="control-group">
 										<div class="controls">
@@ -223,7 +236,7 @@
 			<div class="carousel-inner" id="CarouselInner">
 				<div class="item active" id="CarouselOne">
 					<div class="crop">
-					<img src="pictures/test.jpg"> </div>
+					<img src="pictures/vote.jpg"> </div>
 					<div class="carousel-caption"> <h1> What are you waiting for? </h1>
 						<p class="lead"> Exercise your right to vote! </p>
 						<button class="btn btn-success btn-lg" data-toggle="modal" data-target="#VoteModal" href="#VoteModal">Vote</button>
@@ -231,7 +244,7 @@
 				</div>
 				<div class="item" id="CarouselTwo">
 					<div class="crop">
-					<img src="pictures/voting.jpg"> </div>
+					<img src="pictures/results.jpg"> </div>
 			<!-- Login Collapse -->
 					<div class="carousel-caption"> 
 						<h1> Done voting? </h1>
